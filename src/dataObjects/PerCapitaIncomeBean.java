@@ -1,63 +1,70 @@
 package dataObjects;
 
-public class PerCapitaIncomeBean {
+import utils.GenderEnum;
 
-    private String city;
-    private String country;
-    private String gender;
-    private String currency;
-    private double avgIncome;
+import java.util.Objects;
 
-    public String getCity() {
-        return city;
+public class PerCapitaIncomeBean implements Comparable<PerCapitaIncomeBean> {
+
+    private String city_Country;
+
+    private GenderEnum gender;
+
+    private double perCapitaIncome;
+
+    public String getCity_Country() {
+        return city_Country;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCity_Country(String city_Country) {
+        this.city_Country = city_Country;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getGender() {
+    public GenderEnum getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(GenderEnum gender) {
         this.gender = gender;
     }
 
-    public String getCurrency() {
-        return currency;
+    public double getPerCapitaIncome() {
+        return perCapitaIncome;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public double getAvgIncome() {
-        return avgIncome;
-    }
-
-    public void setAvgIncome(double avgIncome) {
-        this.avgIncome = avgIncome;
+    public void setPerCapitaIncome(double perCapitaIncome) {
+        this.perCapitaIncome = perCapitaIncome;
     }
 
     @Override
     public String toString() {
+        return "PerCapitaIncomeBean{" +
+                "city_Country='" + city_Country + '\'' +
+                ", gender='" + gender + '\'' +
+                ", perCapitaIncome=" + perCapitaIncome +
+                '}';
+    }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("City : ").append(getCity());
-        sb.append(", Country : ").append(getCountry());
-        sb.append(", Gender : ").append(getGender());
-        sb.append(", Currency : ").append(getCurrency());
-        sb.append(", Average Income : ").append(getAvgIncome());
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PerCapitaIncomeBean)) return false;
+        PerCapitaIncomeBean that = (PerCapitaIncomeBean) o;
+        return Double.compare(that.getPerCapitaIncome(), getPerCapitaIncome()) == 0 &&
+                Objects.equals(getCity_Country(), that.getCity_Country()) &&
+                getGender() == that.getGender();
+    }
 
-        return sb.toString();
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCity_Country(), getGender(), getPerCapitaIncome());
+    }
+
+    @Override
+    public int compareTo(PerCapitaIncomeBean o) {
+        if(this.getCity_Country().compareTo(o.getCity_Country()) < 0) return -1;
+        if(this.getCity_Country().compareTo(o.getCity_Country()) == 0 && this.getGender().toString().compareTo(o.getGender().toString()) < 0) return -1;
+        if(this.getCity_Country().compareTo(o.getCity_Country()) == 0 && this.getGender().toString().compareTo(o.getGender().toString()) == 0 && this.getPerCapitaIncome() < o.getPerCapitaIncome()) return -1;
+        return 0;
     }
 }
