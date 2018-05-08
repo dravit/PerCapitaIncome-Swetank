@@ -1,5 +1,4 @@
 import dao.PopulateDataObjects;
-import dataObjects.AverageIncomeBean;
 import dataObjects.PerCapitaIncomeBean;
 import dataReader.DataReader;
 import dataReader.ReadFromCSV;
@@ -9,8 +8,6 @@ import dataWriter.WriteToCSV;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,7 +15,7 @@ public class AppInitializer {
 
     private static final Logger LOGGER = Logger.getLogger(AppInitializer.class.getName());
 
-    private static final String INPUT_FILENAME = "resources\\input\\AverageIncomeIncomeInput.csv";
+    private static final String INPUT_FILENAME = "resources\\input\\AverageIncomeInput.csv";
     private static final String OUTPUT_FILENAME = "resources\\output\\PerCapitaIncomeOutput.csv";
 
     public static void main(String[] args) {

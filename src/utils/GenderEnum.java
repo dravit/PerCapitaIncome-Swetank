@@ -1,5 +1,5 @@
 package utils;
 
 public enum GenderEnum {
-    M, F;
+    M, F
 }

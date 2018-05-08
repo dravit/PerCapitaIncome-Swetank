@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class ReadFromCSVTest {
 
-    private static final String INPUT_FILENAME = "resources\\input\\AverageIncomeIncomeInput.csv";
+    private static final String INPUT_FILENAME = "resources\\input\\AverageIncomeInput.csv";
 
     DataReader dataReader;
 
