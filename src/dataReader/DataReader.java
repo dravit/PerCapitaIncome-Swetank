@@ -5,5 +5,10 @@ import java.util.List;
 
 public interface DataReader {
 
-    public List<String> readLinesFromFile() throws IOException;
+    /**
+     * <p>This method is used to read data from Input file.</p>
+     * @return List of lines from File.
+     * @throws IOException
+     */
+    List<String> readLinesFromFile() throws IOException;
 }

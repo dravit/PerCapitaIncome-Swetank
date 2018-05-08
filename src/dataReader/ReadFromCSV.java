@@ -13,7 +13,11 @@ import java.util.List;
  */
 public class ReadFromCSV implements DataReader {
 
-    private static final String FILENAME = "resources\\input\\PerCapitaIncomeInput.csv";
+    private String filename;
+
+    public ReadFromCSV(String filename) {
+        this.filename = filename;
+    }
 
     @Override
     public List<String> readLinesFromFile() throws IOException {
@@ -21,8 +25,8 @@ public class ReadFromCSV implements DataReader {
         String line;
         List<String> listOfLines = new ArrayList<>();
 
-        br = new BufferedReader(new FileReader(FILENAME));
-        br.readLine();
+        br = new BufferedReader(new FileReader(filename));
+        br.readLine();      //This is to omit the first line which contains columns
         while ((line = br.readLine()) != null) {
             listOfLines.add(line);
         }
